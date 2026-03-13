@@ -18,7 +18,7 @@
       "supportsTablet": false,
       "bundleIdentifier": "com.yourname.soonspot",
       "config": {
-        "googleMapsApiKey": "AIzaSyAmb6brCRVxSMkk6MhL5RgnJTGE9B7K8NY"
+        "googleMapsApiKey": "%(GOOGLE_MAPS_API_KEY)s"
       },
       "infoPlist": {
         "NSLocationWhenInUseUsageDescription": "SoonSpot uses your location to show nearby spots and construction sites.",
@@ -33,7 +33,7 @@
       "package": "com.yourname.soonspot",
       "config": {
         "googleMaps": {
-          "apiKey": "AIzaSyAmb6brCRVxSMkk6MhL5RgnJTGE9B7K8NY"
+          "apiKey": "%(GOOGLE_MAPS_API_KEY)s"
         }
       },
       "permissions": [
