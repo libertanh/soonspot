@@ -1,0 +1,63 @@
+{
+  "expo": {
+    "name": "SoonSpot",
+    "slug": "soonspot",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#E8561A"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.yourname.soonspot",
+      "config": {
+        "googleMapsApiKey": "AIzaSyAt3k3Cf7oWLZZSLysFmr_SRWezkHtebqY"
+      },
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "SoonSpot uses your location to show nearby spots and construction sites.",
+        "NSLocationAlwaysUsageDescription": "SoonSpot uses your location to alert you about new spots nearby."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#E8561A"
+      },
+      "package": "com.yourname.soonspot",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyAt3k3Cf7oWLZZSLysFmr_SRWezkHtebqY"
+        }
+      },
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "SoonSpot uses your location to show nearby spots and construction sites."
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "419923ad-b2e2-413a-8f74-b0e93f598a55"
+      }
+    }
+  }
+}
