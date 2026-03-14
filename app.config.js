@@ -1,0 +1,48 @@
+export default {
+  expo: {
+    name: "SoonSpot",
+    slug: "soonspot",
+    version: "1.0.0",
+    orientation: "portrait",
+    icon: "./assets/icon.png",
+    userInterfaceStyle: "light",
+    splash: {
+      image: "./assets/splash.png",
+      resizeMode: "contain",
+      backgroundColor: "#E8561A"
+    },
+    assetBundlePatterns: ["**/*"],
+    ios: {
+      supportsTablet: false,
+      bundleIdentifier: "com.yourname.soonspot",
+      config: {
+        googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY
+      },
+      infoPlist: {
+        NSLocationWhenInUseUsageDescription: "SoonSpot uses your location to show nearby spots.",
+        NSLocationAlwaysUsageDescription: "SoonSpot uses your location to alert you about new spots nearby."
+      }
+    },
+    android: {
+      adaptiveIcon: {
+        foregroundImage: "./assets/adaptive-icon.png",
+        backgroundColor: "#E8561A"
+      },
+      package: "com.yourname.soonspot",
+      config: {
+        googleMaps: {
+          apiKey: process.env.GOOGLE_MAPS_API_KEY
+        }
+      },
+      permissions: ["ACCESS_FINE_LOCATION", "ACCESS_COARSE_LOCATION"]
+    },
+    web: {
+      favicon: "./assets/favicon.png"
+    },
+    plugins: [
+      ["expo-location", {
+        locationWhenInUsePermission: "SoonSpot uses your location to show nearby spots."
+      }]
+    ]
+  }
+};
