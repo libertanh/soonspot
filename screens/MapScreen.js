@@ -209,39 +209,43 @@ export default function MapScreen() {
 
       {/* ── EMBEDDED GOOGLE MAP ── */}
       <View style={styles.mapContainer}>
+        {/* MAP TEMPORARILY DISABLED FOR DEBUGGING
         <MapView
           ref={mapRef}
           style={styles.map}
-          provider={PROVIDER_GOOGLE}      // uses Google Maps on both iOS & Android
+          provider={PROVIDER_GOOGLE}
           initialRegion={initialRegion}
-          showsUserLocation={true}        // blue dot for current location
-          showsMyLocationButton={true}    // recenter button
+          showsUserLocation={true}
+          showsMyLocationButton={true}
           showsCompass={true}
           showsBuildings={true}
-          showsPointsOfInterest={false}   // hide POI clutter so our pins stand out
+          showsPointsOfInterest={false}
           mapType="standard"
-          customMapStyle={soonSpotMapStyle} // custom orange-accented style
+          customMapStyle={soonSpotMapStyle}
         >
-          {/* One marker per spot */}
           {SPOTS.map(spot => (
             <Marker
               key={spot.id}
               coordinate={{ latitude: spot.latitude, longitude: spot.longitude }}
               onCalloutPress={() => goToDetail(spot)}
-              tracksViewChanges={false}   // perf: don't re-render unless needed
+              tracksViewChanges={false}
             >
-              {/* Custom marker view */}
               <SpotMarker spot={spot} />
-
-              {/* Callout popup when marker is tapped */}
               <Callout tooltip onPress={() => goToDetail(spot)}>
                 <SpotCallout spot={spot} />
               </Callout>
             </Marker>
           ))}
         </MapView>
+        */}
 
-        {/* Spot count badge overlaid on map */}
+        {/* Placeholder while map is disabled */}
+        <View style={styles.mapPlaceholder}>
+          <Text style={styles.mapPlaceholderText}>🗺️ Map Loading...</Text>
+          <Text style={styles.mapPlaceholderSub}>{SPOTS.length} spots in Bedford NH</Text>
+        </View>
+
+        {/* Spot count badge */}
         <View style={styles.mapBadge}>
           <Text style={styles.mapBadgeText}>📍 {SPOTS.length} spots nearby</Text>
         </View>
@@ -319,6 +323,9 @@ const styles = StyleSheet.create({
   map:             { flex: 1 },
   mapBadge:        { position: 'absolute', top: 10, left: 10, backgroundColor: 'rgba(255,255,255,0.92)', borderRadius: 20, paddingHorizontal: 12, paddingVertical: 6, shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.12, shadowRadius: 6, elevation: 4 },
   mapBadgeText:    { fontSize: 12, fontWeight: '700', color: DARK_GRAY },
+  mapPlaceholder:  { flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#f5f0ea' },
+  mapPlaceholderText: { fontSize: 24, marginBottom: 6 },
+  mapPlaceholderSub:  { fontSize: 13, color: DARK_GRAY, fontWeight: '600' },
 
   // Marker
   markerContainer: { alignItems: 'center' },
