@@ -43,6 +43,11 @@ export default {
       ["expo-location", {
         locationWhenInUsePermission: "SoonSpot uses your location to show nearby spots."
       }]
-    ]
+    ],
+    extra: {
+      eas: {
+        projectId: "419923ad-b2e2-413a-8f74-b0e93f598a55"
+      }
+    }
   }
 };
